@@ -2,7 +2,6 @@
 #   This code is incomplete. 
 my_courses = ["English", "Math", "CS"]
 
-
 for course in my_courses:
 
     print() # blank line
@@ -23,7 +22,6 @@ for course in my_courses:
 
     redo = input("Do you need to re-do these grades? (y/n)")
 
-    redo = "y"
 
     while (redo == "y"):
         for course in my_courses:

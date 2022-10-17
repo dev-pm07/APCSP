@@ -1,6 +1,0 @@
-# Infinite Loop
-
-a = 'y'
-
-while a == 'y':
-    print("Hello There!")
