@@ -33,12 +33,16 @@ for s in turtle_shapes:
   
   tloc += 50
 
+# hts = ['fastest', 'fast', 'normal', 'slow', 'slowest']
+# vts = ['fastest', 'fast', 'normal', 'slow', 'slowest']
 
 # TODO: move turtles across and down screen, stopping for collisions
 
 for step in range(50):
   for ht in horiz_turtles:
     for vt in vert_turtles:
+      # ht.speed(vts.pop())
+      # vt.speed(hts.pop())
       vt.forward(3)
       ht.forward(3)
       if (abs(ht.xcor() - vt.xcor()) < 20):
