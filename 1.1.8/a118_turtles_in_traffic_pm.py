@@ -33,6 +33,7 @@ for s in turtle_shapes:
   
   tloc += 50
 
+
 # TODO: move turtles across and down screen, stopping for collisions
 
 for step in range(50):
@@ -42,7 +43,9 @@ for step in range(50):
       ht.forward(3)
       if (abs(ht.xcor() - vt.xcor()) < 20):
         if (abs(ht.ycor() - vt.ycor()) < 20):
+          ht.fillcolor("gray")
           horiz_turtles.remove(ht) 
+          vt.fillcolor("gray")
           vert_turtles.remove(vt)
   
 

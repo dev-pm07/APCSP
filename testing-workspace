@@ -1,0 +1,7 @@
+import turtle as trtl
+
+trtl.speed(10)
+trtl.forward(200)
+
+wn = trtl.Screen()
+wn.mainloop()
