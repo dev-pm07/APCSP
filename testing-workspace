@@ -1,7 +1,194 @@
-import turtle as trtl
+# Segment 1:
 
-trtl.speed(1)
-trtl.forward(200)
+import turtle as bubble
+import random as rand
+
+wn = bubble.Screen()
+wn.tracer(0)
+
+wn.bgcolor('light green')  
+
+bubbleSize = rand.randint(5, 15)
+
+def airBubble(bubble):  
+  
+    # filling the color in the bubble  
+    bubble.fillcolor('royal blue')  
+  
+    # starting to color the bubble  
+    bubble.begin_fill()  
+  
+    # drawing the circle  
+    bubble.circle(bubbleSize)  
+  
+    # ending the color filling in the bubble  
+    bubble.end_fill()  
+
+# setting the turtle object color to red  
+bubble.color('blue')  
+
+# setting the turtle object speed  
+bubble.speed(0)  
+
+# setting the turtle object width  
+bubble.width(2)  
+
+# hiding the turtle object  
+bubble.hideturtle()  
+
+# turtle object in air  
+bubble.penup()  
+
+# setting the initial position  
+bubble.goto(-350, 0)  
+
+# moving turtle object to the surface  
+bubble.pendown() 
+
+bubble.speed('slowest')
+
+while True:  
+
+    # clearing the past location of bubble
+    bubble.clear()  
+
+    # calling the method to draw the bubble  
+    airBubble(bubble) 
+
+    bubble.setheading(90)
+
+    # updating the screen  
+    wn.update()  
+
+    # forward motion by turtle object  
+    bubble.forward(0.6)  
+
+
+
+wn.mainloop()
+
+# Segment 2:
+
+import turtle as trtl
+import random as rand
+
+takenCoords = []
+sizeOfBarnacles = 10
+numOfBarnacles = 50
+distBtwBarnacles = sizeOfBarnacles*2
+spawnSquare = 150
+numOfTakenCoords = 0
+
+for i in range(numOfBarnacles):
+
+    xcoordinate = rand.randint(0, spawnSquare)
+    ycoordinate = rand.randint(0, spawnSquare)
+
+    coordinate = [xcoordinate, ycoordinate]
+ 
+    for numOfCoords in range(len(takenCoords)):
+        for coords in range(len(takenCoords[numOfCoords])):
+            while abs(coordinate[0] - takenCoords[numOfCoords][0]) < distBtwBarnacles:
+                xcoordinate = rand.randint(0, spawnSquare)
+                coordinate[0] = xcoordinate
+            while abs(coordinate[1] - takenCoords[numOfCoords][1]) < distBtwBarnacles:
+                ycoordinate = rand.randint(0, spawnSquare)
+                coordinate[1] = ycoordinate
+
+    takenCoords.append(coordinate)
+
+    print(takenCoords)
+
+    trtl.pencolor('gainsboro')
+    trtl.fillcolor('gainsboro')
+
+    trtl.penup()
+    trtl.goto(coordinate[0], coordinate[1])
+    trtl.pendown()
+
+    trtl.begin_fill()
+    trtl.circle(10)
+    trtl.end_fill()
 
 wn = trtl.Screen()
 wn.mainloop()
+
+
+
+    # if len(takenCoords) == 1:
+    #     while abs(coordinate[0] - takenCoords[0][0]) < 15:
+    #         xcoordinate = rand.randint(0, 150)
+    #         coordinate[0] = xcoordinate
+    #     pass
+    # if len(takenCoords) == 2:
+    #     while abs(coordinate[0] - takenCoords[1][0]) < 15 or abs(coordinate[0] - takenCoords[0][0]) < 15:
+    #         xcoordinate = rand.randint(0, 150)
+    #         coordinate[0] = xcoordinate
+    #     pass
+    # if len(takenCoords) == 3:
+    #     while abs(coordinate[0] - takenCoords[2][0]) < 15 or abs(coordinate[0] - takenCoords[1][0]) < 15 or abs(coordinate[0] - takenCoords[0][0]) < 15:
+    #         xcoordinate = rand.randint(0, 150)
+    #         coordinate[0] = xcoordinate
+    #     pass
+    # if len(takenCoords) == 4:
+    #     while abs(coordinate[0] - takenCoords[3][0]) < 15 or abs(coordinate[0] - takenCoords[2][0]) < 15 or abs(coordinate[0] - takenCoords[1][0]) < 15 or abs(coordinate[0] - takenCoords[0][0]) < 15:
+    #         xcoordinate = rand.randint(0, 150)
+    #         coordinate[0] = xcoordinate
+    #     pass
+    # if len(takenCoords) == 5:
+    #     while abs(coordinate[0] - takenCoords[4][0]) < 15 or abs(coordinate[0] - takenCoords[3][0]) < 15 or abs(coordinate[0] - takenCoords[2][0]) < 15 or abs(coordinate[0] - takenCoords[1][0]) < 15 or abs(coordinate[0] - takenCoords[0][0]) < 15:
+    #         xcoordinate = rand.randint(0, 150)
+    #         coordinate[0] = xcoordinate
+    #     pass
+    # else:
+    #     pass
+    
+    # if len(takenCoords) == 1:
+    #     while abs(coordinate[1] - takenCoords[0][1]) < 15:
+    #         ycoordinate = rand.randint(0, 150)
+    #         coordinate[1] = ycoordinate
+    #     pass
+    # if len(takenCoords) == 2:
+    #     while abs(coordinate[1] - takenCoords[1][1]) < 15 or abs(coordinate[1] - takenCoords[0][1]) < 15:
+    #         ycoordinate = rand.randint(0, 150)
+    #         coordinate[1] = ycoordinate
+    #     pass
+    # if len(takenCoords) == 3:
+    #     while abs(coordinate[1] - takenCoords[2][1]) < 15 or abs(coordinate[1] - takenCoords[1][1]) < 15 or abs(coordinate[1] - takenCoords[0][1]) < 15:
+    #         ycoordinate = rand.randint(0, 150)
+    #         coordinate[1] = ycoordinate
+    #     pass
+    # if len(takenCoords) == 4:
+    #     while abs(coordinate[1] - takenCoords[3][1]) < 15 or abs(coordinate[1] - takenCoords[2][1]) < 15 or abs(coordinate[1] - takenCoords[1][1]) < 15 or abs(coordinate[1] - takenCoords[0][1]) < 15:
+    #         ycoordinate = rand.randint(0, 150)
+    #         coordinate[1] = ycoordinate
+    #         pass
+    # if len(takenCoords) == 5:
+    #     while abs(coordinate[1] - takenCoords[4][1]) < 15 or abs(coordinate[1] - takenCoords[3][1]) < 15 or abs(coordinate[1] - takenCoords[2][1]) < 15 or abs(coordinate[1] - takenCoords[1][1]) < 15 or abs(coordinate[1] - takenCoords[0][1]) < 15:
+    #         ycoordinate = rand.randint(0, 150)
+    #         coordinate[1] = ycoordinate
+    #     pass
+    # else:
+    #     pass
+
+    # while abs(coordinate[1] - takenCoords[0][1]) < 15:
+    #     while abs(coordinate[1] - takenCoords[1][1]) < 15:
+    #         while abs(coordinate[1] - takenCoords[2][1]) < 15:
+    #             while abs(coordinate[1] - takenCoords[3][1]) < 15:
+    #                 while abs(coordinate[1] - takenCoords[4][1]) < 15:
+    #                                ycoordinate = rand.randint(0, 150)
+    #                                coordinate[1] = ycoordinate
+
+    # while abs(coordinate[0] - takenCoords[0][0]) < 15:
+    # while abs(coordinate[0] - takenCoords[1][0] < 15):
+    #     while abs(coordinate[0] - takenCoords[2][0]) < 15:
+    #         while abs(coordinate[0] - takenCoords[3][0]) < 15:
+    #             while abs(coordinate[0] - takenCoords[4][0]) < 15:
+    #                             xcoordinate = rand.randint(0, 150)
+    #                             coordinate[0] = xcoordinate
+
+    # for numOfCoords in range(len(takenCoords)):
+    #     print(abs(coordinate[0] - takenCoords[numOfCoords][0]))
+    #     while abs(coordinate[0] - takenCoords[numOfCoords][0]) < 15:
+    #     print(abs(coordinate[1] - takenCoords[numOfCoords][1]))
+    #     while abs(coordinate[1] - takenCoords[numOfCoords][1]) < 15:
