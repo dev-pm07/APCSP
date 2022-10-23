@@ -1,117 +1,151 @@
-# Segment 1:
+# # Segment 1:
 
-import turtle as bubble
-import random as rand
+# import turtle as bubble
+# import random as rand
 
-wn = bubble.Screen()
-wn.tracer(0)
+# wn = bubble.Screen()
+# wn.tracer(0)
 
-wn.bgcolor('light green')  
+# wn.bgcolor('light green')  
 
-bubbleSize = rand.randint(5, 15)
+# bubbleSize = rand.randint(5, 15)
 
-def airBubble(bubble):  
+# def airBubble(bubble):  
   
-    # filling the color in the bubble  
-    bubble.fillcolor('royal blue')  
+#     # filling the color in the bubble  
+#     bubble.fillcolor('royal blue')  
   
-    # starting to color the bubble  
-    bubble.begin_fill()  
+#     # starting to color the bubble  
+#     bubble.begin_fill()  
   
-    # drawing the circle  
-    bubble.circle(bubbleSize)  
+#     # drawing the circle  
+#     bubble.circle(bubbleSize)  
   
-    # ending the color filling in the bubble  
-    bubble.end_fill()  
+#     # ending the color filling in the bubble  
+#     bubble.end_fill()  
 
-# setting the turtle object color to red  
-bubble.color('blue')  
+# # setting the turtle object color to red  
+# bubble.color('blue')  
 
-# setting the turtle object speed  
-bubble.speed(0)  
+# # setting the turtle object speed  
+# bubble.speed(0)  
 
-# setting the turtle object width  
-bubble.width(2)  
+# # setting the turtle object width  
+# bubble.width(2)  
 
-# hiding the turtle object  
-bubble.hideturtle()  
+# # hiding the turtle object  
+# bubble.hideturtle()  
 
-# turtle object in air  
-bubble.penup()  
+# # turtle object in air  
+# bubble.penup()  
 
-# setting the initial position  
-bubble.goto(-350, 0)  
+# # setting the initial position  
+# bubble.goto(-350, 0)  
 
-# moving turtle object to the surface  
-bubble.pendown() 
+# # moving turtle object to the surface  
+# bubble.pendown() 
 
-bubble.speed('slowest')
+# bubble.speed('slowest')
 
-while True:  
+# while True:  
 
-    # clearing the past location of bubble
-    bubble.clear()  
+#     # clearing the past location of bubble
+#     bubble.clear()  
 
-    # calling the method to draw the bubble  
-    airBubble(bubble) 
+#     # calling the method to draw the bubble  
+#     airBubble(bubble) 
 
-    bubble.setheading(90)
+#     bubble.setheading(90)
 
-    # updating the screen  
-    wn.update()  
+#     # updating the screen  
+#     wn.update()  
 
-    # forward motion by turtle object  
-    bubble.forward(0.6)  
+#     # forward motion by turtle object  
+#     bubble.forward(0.6)  
 
 
 
-wn.mainloop()
+# wn.mainloop()
 
 # Segment 2:
 
-import turtle as trtl
-import random as rand
+# import turtle as trtl
+# import random as rand
 
-takenCoords = []
-sizeOfBarnacles = 10
-numOfBarnacles = 50
-distBtwBarnacles = sizeOfBarnacles*2
-spawnSquare = 150
-numOfTakenCoords = 0
+# takenCoords = []
+# sizeOfBarnacles = 10
+# numOfBarnacles = 20
+# distBtwBarnacles = sizeOfBarnacles*2
+# spawnSquare = 150
+# numOfTakenCoords = 0
+# takenXValues = []
+# takenYValues = []
 
-for i in range(numOfBarnacles):
+# for i in range(numOfBarnacles):
 
-    xcoordinate = rand.randint(0, spawnSquare)
-    ycoordinate = rand.randint(0, spawnSquare)
+#     differenceXValues = []
+#     differenceYValues = []
 
-    coordinate = [xcoordinate, ycoordinate]
- 
-    for numOfCoords in range(len(takenCoords)):
-        for coords in range(len(takenCoords[numOfCoords])):
-            while abs(coordinate[0] - takenCoords[numOfCoords][0]) < distBtwBarnacles:
-                xcoordinate = rand.randint(0, spawnSquare)
-                coordinate[0] = xcoordinate
-            while abs(coordinate[1] - takenCoords[numOfCoords][1]) < distBtwBarnacles:
-                ycoordinate = rand.randint(0, spawnSquare)
-                coordinate[1] = ycoordinate
+#     xcoordinate = rand.randint(0, spawnSquare)
+#     ycoordinate = rand.randint(0, spawnSquare)
 
-    takenCoords.append(coordinate)
+#     coordinate = [xcoordinate, ycoordinate]
+    
+#     def check():
+#         for numOfCoords in range(len(takenCoords)):
+#             takenXValues.append(takenCoords[numOfCoords][0])
+#             takenYValues.append(takenCoords[numOfCoords][1])
+#             # while abs(coordinate[0] - takenCoords[numOfCoords][0]) < distBtwBarnacles:
+#             #     xcoordinate = rand.randint(0, spawnSquare)
+#             #     coordinate[0] = xcoordinate
+#             # while abs(coordinate[1] - takenCoords[numOfCoords][1]) < distBtwBarnacles:
+#             #     ycoordinate = rand.randint(0, spawnSquare)
+#             #     coordinate[1] = ycoordinate
+#         differenceXValues = [abs(xvalues - coordinate[0]) for xvalues in takenXValues]
+#         differenceYValues = [abs(yvalues - coordinate[1]) for yvalues in takenYValues]
+#         print(differenceXValues)
+#         print(differenceYValues)
 
-    print(takenCoords)
+    
 
-    trtl.pencolor('gainsboro')
-    trtl.fillcolor('gainsboro')
+#     if all(value < distBtwBarnacles for value in differenceXValues):
+#         coordinate[0] = rand.randint(0, spawnSquare)
+#         check()
+#     else:
+#         pass
+    
+#     if all(value < distBtwBarnacles for value in differenceYValues):
+#         coordinate[1] = rand.randint(0, spawnSquare)
+#         check()
+#     else:
+#         pass
 
-    trtl.penup()
-    trtl.goto(coordinate[0], coordinate[1])
-    trtl.pendown()
+#     takenCoords.append(coordinate)
 
-    trtl.begin_fill()
-    trtl.circle(10)
-    trtl.end_fill()
+#     print(takenCoords)
 
-wn = trtl.Screen()
-wn.mainloop()
+#     trtl.pencolor('gainsboro')
+#     trtl.fillcolor('gainsboro')
+
+#     trtl.penup()
+#     trtl.goto(coordinate[0], coordinate[1])
+#     trtl.pendown()
+
+#     trtl.begin_fill()
+#     trtl.circle(10)
+#     trtl.end_fill()
+
+# wn = trtl.Screen()
+# wn.mainloop()
+
+
+
+
+
+
+
+
+
 
 
 
