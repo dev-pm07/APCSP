@@ -53,6 +53,25 @@ Milestones
 
     3.) Animation of Barnacles.
 
+Pseudocode:
+
+    set background color to ocean blue
+    go to (-50, -50)
+    set pen color to red
+    fill color is crimson
+    begin fill
+    head is 0
+    for i in 5
+        set heading to head + 36
+        move forward 50 steps
+    end fill
+    create barnacles
+    create barnacle bubbles
+
+
+
+
+
 Resources and References:
 
     https://www.geeksforgeeks.org/draw-moving-object-using-turtle-in-python/
@@ -61,3 +80,4 @@ Resources and References:
     https://www.geeksforgeeks.org/turtle-heading-function-in-python/
     https://trinket.io/docs/colors
     https://www.geeksforgeeks.org/multi-dimensional-lists-in-python/
+    https://www.google.com/search?q=angles+of+star+shape&rlz=1C1GCEB_enUS1018US1019&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjd5rvkmPz6AhWdlGoFHYIeCekQ_AUoAXoECAIQAw&biw=1920&bih=937&dpr=1&safe=active&ssui=on#imgrc=WpzF6IDW0bXPFM
