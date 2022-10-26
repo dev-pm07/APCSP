@@ -1,30 +1,36 @@
-import turtle as trtl
+import turtle
 import random as rand
-wn = trtl.Screen()
+import time
+
+organism = turtle.Turtle()
+
+wn = turtle.Screen()
+
+organism.speed('fastest')
 
 # Set background color to sea
 wn.bgcolor('medium blue') 
 
-trtl.pencolor('crimson')
-trtl.penup()
-trtl.goto(100, 0)
-trtl.pendown()
+organism.pencolor('crimson')
+organism.penup()
+organism.goto(100, 0)
+organism.pendown()
 
 head = 0
-trtl.fillcolor('crimson')
-trtl.begin_fill()
+organism.fillcolor('crimson')
+organism.begin_fill()
 
 # Create Starfish
 for i in range(5):
     head = head + 144
-    trtl.setheading(head)
-    trtl.forward(200)
+    organism.setheading(head)
+    organism.forward(200)
 
-trtl.end_fill()
+organism.end_fill()
 
 topTakenCoords = []
-sizeOfBarnacles = 10
-numOfBarnacles = 20
+sizeOfBarnacles = 20
+numOfBarnacles = 15
 distBtwBarnacles = sizeOfBarnacles*2
 spawnSquare = 300
 numOfTakenCoords = 0
@@ -68,25 +74,24 @@ for i in range(numOfBarnacles):
 
     print(topTakenCoords)
 
-    trtl.pencolor('gainsboro')
-    trtl.fillcolor('gainsboro')
+    organism.pencolor('gainsboro')
+    organism.fillcolor('gainsboro')
 
-    trtl.penup()
-    trtl.goto(coordinate[0], coordinate[1])
-    trtl.pendown()
+    organism.penup()
+    organism.goto(coordinate[0], coordinate[1])
+    organism.pendown()
 
-    trtl.begin_fill()
-    trtl.circle(10)
-    trtl.end_fill()
+    organism.begin_fill()
+    organism.circle(10)
+    organism.end_fill()
 
 bottomTakenCoords = []
-sizeOfBarnacles = 10
-numOfBarnacles = 20
+sizeOfBarnacles = 20
+numOfBarnacles = 15
 distBtwBarnacles = sizeOfBarnacles*2
 numOfTakenCoords = 0
 takenXValues = []
 takenYValues = []
-
 
 for i in range(numOfBarnacles):
 
@@ -125,17 +130,77 @@ for i in range(numOfBarnacles):
 
     print(bottomTakenCoords)
 
-    trtl.pencolor('gainsboro')
-    trtl.fillcolor('gainsboro')
+    organism.pencolor('gainsboro')
+    organism.fillcolor('gainsboro')
 
-    trtl.penup()
-    trtl.goto(coordinate[0], coordinate[1])
-    trtl.pendown()
+    organism.penup()
+    organism.goto(coordinate[0], coordinate[1])
+    organism.pendown()
 
-    trtl.begin_fill()
-    trtl.circle(10)
-    trtl.end_fill()
+    organism.begin_fill()
+    organism.circle(10)
+    organism.end_fill()
 
+barnacleCoords = topTakenCoords + bottomTakenCoords
+organism.hideturtle()
+
+bubble = turtle.Turtle()
+bubble.speed('slowest')
 
 wn.tracer(0)
-wn.mainloop()
+
+while True:
+    for numOfCoordinates in range(len(barnacleCoords)):
+        bubbleSize = rand.randint(5, 10)
+
+        print(barnacleCoords[numOfCoordinates])
+
+        def airBubble(bubble):  
+        
+            # filling the color in the bubble  
+            bubble.fillcolor('medium turquoise')  
+        
+            # starting to color the bubble  
+            bubble.begin_fill()  
+        
+            # drawing the circle  
+            bubble.circle(bubbleSize)  
+        
+            # ending the color filling in the bubble  
+            bubble.end_fill()  
+
+        # setting the turtle object color to light sea green  
+        bubble.color('light sea green')  
+
+        # setting the turtle object speed   
+
+        # setting the turtle object width  
+        bubble.width(2)  
+
+        # hiding the turtle object  
+        bubble.hideturtle()  
+
+        # turtle object in air  
+        bubble.penup()  
+
+        # setting the initial position  
+        bubble.goto(barnacleCoords[numOfCoordinates][0], barnacleCoords[numOfCoordinates][1])  
+
+        # moving turtle object to the surface  
+        bubble.pendown() 
+
+        # clearing the past location of bubble
+        bubble.clear()  
+
+        # calling the method to draw the bubble  
+        airBubble(bubble) 
+
+        bubble.setheading(90)
+
+        # updating the screen  
+        turtle.update()  
+
+        # forward motion by turtle object  
+        while bubble.ycor() < 450:
+            bubble.forward(0.6)
+            turtle.delay(5000)

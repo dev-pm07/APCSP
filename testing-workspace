@@ -1,67 +1,67 @@
-# # Segment 1:
+# Segment 1:
 
-# import turtle as bubble
-# import random as rand
+import turtle as bubble
+import random as rand
 
-# wn = bubble.Screen()
-# wn.tracer(0)
+wn = bubble.Screen()
+wn.tracer(0)
 
-# wn.bgcolor('light green')  
+wn.bgcolor('light green')  
 
-# bubbleSize = rand.randint(5, 15)
+bubbleSize = rand.randint(5, 15)
 
-# def airBubble(bubble):  
+def airBubble(bubble):  
   
-#     # filling the color in the bubble  
-#     bubble.fillcolor('royal blue')  
+    # filling the color in the bubble  
+    bubble.fillcolor('royal blue')  
   
-#     # starting to color the bubble  
-#     bubble.begin_fill()  
+    # starting to color the bubble  
+    bubble.begin_fill()  
   
-#     # drawing the circle  
-#     bubble.circle(bubbleSize)  
+    # drawing the circle  
+    bubble.circle(bubbleSize)  
   
-#     # ending the color filling in the bubble  
-#     bubble.end_fill()  
+    # ending the color filling in the bubble  
+    bubble.end_fill()  
 
-# # setting the turtle object color to red  
-# bubble.color('blue')  
+# setting the turtle object color to red  
+bubble.color('blue')  
 
-# # setting the turtle object speed  
-# bubble.speed(0)  
+# setting the turtle object speed  
+bubble.speed(0)  
 
-# # setting the turtle object width  
-# bubble.width(2)  
+# setting the turtle object width  
+bubble.width(2)  
 
-# # hiding the turtle object  
-# bubble.hideturtle()  
+# hiding the turtle object  
+bubble.hideturtle()  
 
-# # turtle object in air  
-# bubble.penup()  
+# turtle object in air  
+bubble.penup()  
 
 # # setting the initial position  
-# bubble.goto(-350, 0)  
+bubble.goto(-350, 0)  
 
-# # moving turtle object to the surface  
-# bubble.pendown() 
+# moving turtle object to the surface  
+bubble.pendown() 
 
-# bubble.speed('slowest')
+bubble.speed('slowest')
 
-# while True:  
+while True:  
 
-#     # clearing the past location of bubble
-#     bubble.clear()  
+    # clearing the past location of bubble
+    bubble.clear()  
 
-#     # calling the method to draw the bubble  
-#     airBubble(bubble) 
+    # calling the method to draw the bubble  
+    airBubble(bubble) 
 
-#     bubble.setheading(90)
+    bubble.setheading(90)
 
-#     # updating the screen  
-#     wn.update()  
+    # updating the screen  
+    wn.update()  
 
-#     # forward motion by turtle object  
-#     bubble.forward(0.6)  
+    # forward motion by turtle object  
+    bubble.forward(0.6)  
 
 
 
