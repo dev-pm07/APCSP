@@ -1,10 +1,37 @@
-import turtle
+from turtle import Screen, Turtle
 import random as rand
-import time
 
-organism = turtle.Turtle()
+COLOR = (0, .4118, .5804)  # (0% red, 41.18% green and 58.04% blue) top color
+TARGET = (.1804, .5451, .3412)  # (18.04% red, 54.51% green and 34.12% blue) bottom color
 
-wn = turtle.Screen()
+
+wn = Screen()
+wn.tracer(False)
+
+WIDTH, HEIGHT = wn.window_width(), wn.window_height()
+
+deltas = [(hue - COLOR[index]) / HEIGHT for index, hue in enumerate(TARGET)]
+
+turtle = Turtle()
+turtle.color(COLOR)
+
+turtle.penup()
+turtle.goto(-WIDTH, HEIGHT)#size1
+turtle.pendown()
+
+direction = 2
+
+for distance, y in enumerate(range(HEIGHT//2, -HEIGHT//2, -1)):#size2
+
+    turtle.forward(WIDTH * direction)
+    turtle.color([COLOR[i] + delta * distance for i, delta in enumerate(deltas)])
+    turtle.sety(y)
+
+    direction *= -1
+
+wn.tracer(True)
+
+organism = Turtle()
 
 organism.speed('fastest')
 
@@ -30,7 +57,7 @@ organism.end_fill()
 
 topTakenCoords = []
 sizeOfBarnacles = 20
-numOfBarnacles = 15
+numOfBarnacles = 25
 distBtwBarnacles = sizeOfBarnacles*2
 spawnSquare = 300
 numOfTakenCoords = 0
@@ -53,8 +80,6 @@ for i in range(numOfBarnacles):
             takenYValues.append(topTakenCoords[numOfCoords][1])
         differenceXValues = [abs(xvalues - coordinate[0]) for xvalues in takenXValues]
         differenceYValues = [abs(yvalues - coordinate[1]) for yvalues in takenYValues]
-        print(differenceXValues)
-        print(differenceYValues)
 
     
 
@@ -71,8 +96,6 @@ for i in range(numOfBarnacles):
         pass
 
     topTakenCoords.append(coordinate)
-
-    print(topTakenCoords)
 
     organism.pencolor('gainsboro')
     organism.fillcolor('gainsboro')
@@ -109,8 +132,6 @@ for i in range(numOfBarnacles):
             takenYValues.append(bottomTakenCoords[numOfCoords][1])
         differenceXValues = [abs(xvalues - coordinate[0]) for xvalues in takenXValues]
         differenceYValues = [abs(yvalues - coordinate[1]) for yvalues in takenYValues]
-        print(differenceXValues)
-        print(differenceYValues)
 
     
 
@@ -128,8 +149,6 @@ for i in range(numOfBarnacles):
 
     bottomTakenCoords.append(coordinate)
 
-    print(bottomTakenCoords)
-
     organism.pencolor('gainsboro')
     organism.fillcolor('gainsboro')
 
@@ -144,7 +163,7 @@ for i in range(numOfBarnacles):
 barnacleCoords = topTakenCoords + bottomTakenCoords
 organism.hideturtle()
 
-bubble = turtle.Turtle()
+bubble = Turtle()
 bubble.speed('slowest')
 
 wn.tracer(0)
@@ -153,7 +172,7 @@ while True:
     for numOfCoordinates in range(len(barnacleCoords)):
         bubbleSize = rand.randint(5, 10)
 
-        print(barnacleCoords[numOfCoordinates])
+        indexNum = rand.randint(0, ((numOfBarnacles*2) - 1))
 
         def airBubble(bubble):  
         
@@ -172,7 +191,8 @@ while True:
         # setting the turtle object color to light sea green  
         bubble.color('light sea green')  
 
-        # setting the turtle object speed   
+        # setting the turtle object speed  
+        bubble.speed(0)  
 
         # setting the turtle object width  
         bubble.width(2)  
@@ -183,24 +203,28 @@ while True:
         # turtle object in air  
         bubble.penup()  
 
-        # setting the initial position  
-        bubble.goto(barnacleCoords[numOfCoordinates][0], barnacleCoords[numOfCoordinates][1])  
+        # # setting the initial position  
+        bubble.goto(barnacleCoords[indexNum][0], barnacleCoords[indexNum][1])  
 
         # moving turtle object to the surface  
         bubble.pendown() 
 
-        # clearing the past location of bubble
-        bubble.clear()  
+        bubble.speed('slowest')
 
-        # calling the method to draw the bubble  
-        airBubble(bubble) 
+        while bubble.ycor() < 450:  
 
-        bubble.setheading(90)
+            # clearing the past location of bubble
+            bubble.clear()  
 
-        # updating the screen  
-        turtle.update()  
+            # calling the method to draw the bubble  
+            airBubble(bubble) 
 
-        # forward motion by turtle object  
-        while bubble.ycor() < 450:
-            bubble.forward(0.6)
-            turtle.delay(5000)
+            bubble.setheading(90)
+
+            # updating the screen  
+            wn.update()  
+
+            # forward motion by turtle object  
+            bubble.forward(5)  
+        
+        bubble.clear()

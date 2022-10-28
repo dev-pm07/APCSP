@@ -43,7 +43,7 @@ Decomposition:
         - Loop it going up til it goes out of screen
 
     Part 4b - Movement of Starfish:
-        - Split arms of starfish and move them - non-feasable
+        - Split arms of starfish and move them - not feasable
 
 Milestones
 

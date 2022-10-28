@@ -1,71 +1,136 @@
-# Segment 1:
+# # Segment 1:
 
+# import turtle as bubble
+# import random as rand
+
+# wn = bubble.Screen()
+# wn.tracer(0)
+
+# wn.bgcolor('light green')  
+
+# bubbleSize = rand.randint(5, 15)
+
+# def airBubble(bubble):  
+  
+#     # filling the color in the bubble  
+#     bubble.fillcolor('royal blue')  
+  
+#     # starting to color the bubble  
+#     bubble.begin_fill()  
+  
+#     # drawing the circle  
+#     bubble.circle(bubbleSize)  
+  
+#     # ending the color filling in the bubble  
+#     bubble.end_fill()  
+
+# # setting the turtle object color to red  
+# bubble.color('blue')  
+
+# # setting the turtle object speed  
+# bubble.speed(0)  
+
+# # setting the turtle object width  
+# bubble.width(2)  
+
+# # hiding the turtle object  
+# bubble.hideturtle()  
+
+# # turtle object in air  
+# bubble.penup()  
+
+# # # setting the initial position  
+# bubble.goto(-350, 0)  
+
+# # moving turtle object to the surface  
+# bubble.pendown() 
+
+# bubble.speed('slowest')
+
+# while True:  
+
+#     # clearing the past location of bubble
+#     bubble.clear()  
+
+#     # calling the method to draw the bubble  
+#     airBubble(bubble) 
+
+#     bubble.setheading(90)
+
+#     # updating the screen  
+#     wn.update()  
+
+#     # forward motion by turtle object  
+#     bubble.forward(0.6)  
 import turtle as bubble
 import random as rand
 
 wn = bubble.Screen()
 wn.tracer(0)
 
-wn.bgcolor('light green')  
+barnacleCoords = [[0,0], [25,50], [50, 100], [100, 200]]
 
-bubbleSize = rand.randint(5, 15)
+while True:
+    for numOfCoordinates in range(len(barnacleCoords)):
+        bubbleSize = rand.randint(5, 10)
 
-def airBubble(bubble):  
-  
-    # filling the color in the bubble  
-    bubble.fillcolor('royal blue')  
-  
-    # starting to color the bubble  
-    bubble.begin_fill()  
-  
-    # drawing the circle  
-    bubble.circle(bubbleSize)  
-  
-    # ending the color filling in the bubble  
-    bubble.end_fill()  
+        print(barnacleCoords[numOfCoordinates])
 
-# setting the turtle object color to red  
-bubble.color('blue')  
+        def airBubble(bubble):  
+        
+            # filling the color in the bubble  
+            bubble.fillcolor('medium turquoise')  
+        
+            # starting to color the bubble  
+            bubble.begin_fill()  
+        
+            # drawing the circle  
+            bubble.circle(bubbleSize)  
+        
+            # ending the color filling in the bubble  
+            bubble.end_fill()  
 
-# setting the turtle object speed  
-bubble.speed(0)  
+        # setting the turtle object color to light sea green  
+        bubble.color('light sea green')  
 
-# setting the turtle object width  
-bubble.width(2)  
+        # setting the turtle object speed  
+        bubble.speed(0)  
 
-# hiding the turtle object  
-bubble.hideturtle()  
+        # setting the turtle object width  
+        bubble.width(2)  
 
-# turtle object in air  
-bubble.penup()  
+        # hiding the turtle object  
+        bubble.hideturtle()  
 
-# # setting the initial position  
-bubble.goto(-350, 0)  
+        # turtle object in air  
+        bubble.penup()  
 
-# moving turtle object to the surface  
-bubble.pendown() 
+        # # setting the initial position  
+        bubble.goto(barnacleCoords[numOfCoordinates][0], barnacleCoords[numOfCoordinates][1])  
 
-bubble.speed('slowest')
+        # moving turtle object to the surface  
+        bubble.pendown() 
 
-while True:  
+        bubble.speed('slowest')
 
-    # clearing the past location of bubble
-    bubble.clear()  
+        while bubble.ycor() < 450:  
 
-    # calling the method to draw the bubble  
-    airBubble(bubble) 
+            # clearing the past location of bubble
+            bubble.clear()  
 
-    bubble.setheading(90)
+            # calling the method to draw the bubble  
+            airBubble(bubble) 
 
-    # updating the screen  
-    wn.update()  
+            bubble.setheading(90)
 
-    # forward motion by turtle object  
-    bubble.forward(0.6)  
+            # updating the screen  
+            wn.update()  
 
+            # forward motion by turtle object  
+            bubble.forward(0.6)  
+        
+        bubble.clear()
 
-
-# wn.mainloop()
 
 # Segment 2:
 
