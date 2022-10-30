@@ -78,8 +78,8 @@ for i in range(numOfBarnacles):
         for numOfCoords in range(len(topTakenCoords)):
             takenXValues.append(topTakenCoords[numOfCoords][0])
             takenYValues.append(topTakenCoords[numOfCoords][1])
-        differenceXValues = [abs(xvalues - coordinate[0]) for xvalues in takenXValues]
-        differenceYValues = [abs(yvalues - coordinate[1]) for yvalues in takenYValues]
+    differenceXValues = [abs(xvalues - coordinate[0]) for xvalues in takenXValues]
+    differenceYValues = [abs(yvalues - coordinate[1]) for yvalues in takenYValues]
 
     
 
@@ -110,7 +110,7 @@ for i in range(numOfBarnacles):
 
 bottomTakenCoords = []
 sizeOfBarnacles = 20
-numOfBarnacles = 15
+numOfBarnacles = 25
 distBtwBarnacles = sizeOfBarnacles*2
 numOfTakenCoords = 0
 takenXValues = []
@@ -130,8 +130,8 @@ for i in range(numOfBarnacles):
         for numOfCoords in range(len(bottomTakenCoords)):
             takenXValues.append(bottomTakenCoords[numOfCoords][0])
             takenYValues.append(bottomTakenCoords[numOfCoords][1])
-        differenceXValues = [abs(xvalues - coordinate[0]) for xvalues in takenXValues]
-        differenceYValues = [abs(yvalues - coordinate[1]) for yvalues in takenYValues]
+    differenceXValues = [abs(xvalues - coordinate[0]) for xvalues in takenXValues]
+    differenceYValues = [abs(yvalues - coordinate[1]) for yvalues in takenYValues]
 
     
 
