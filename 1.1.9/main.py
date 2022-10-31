@@ -8,6 +8,9 @@ TARGET = (.1804, .5451, .3412)  # (18.04% red, 54.51% green and 34.12% blue) bot
 wn = Screen()
 wn.tracer(False)
 
+wn.setup(width = 1920, height = 1080)
+
+
 WIDTH, HEIGHT = wn.window_width(), wn.window_height()
 
 deltas = [(hue - COLOR[index]) / HEIGHT for index, hue in enumerate(TARGET)]
@@ -51,7 +54,7 @@ organism.begin_fill()
 for i in range(5):
     head = head + 144
     organism.setheading(head)
-    organism.forward(200)
+    organism.forward(400)
 
 organism.end_fill()
 
