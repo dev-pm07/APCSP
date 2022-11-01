@@ -69,7 +69,9 @@ Pseudocode:
     create barnacle bubbles
 
 
+Redisgned features - None.
 
+Testing - All milestones reached.
 
 
 Resources and References:
