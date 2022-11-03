@@ -69,7 +69,7 @@ Pseudocode:
     create barnacle bubbles
 
 
-Redisgned features - None.
+Redisgned features - The method which positioned the barnacles was redesigned multiple times to make it efficient. First, multiple nested loops were used to check if they were touching each other. Then, realizing that maintaining the code was almost impossible, I turned to putting the differences of the random coordinate and the taken coordinates and checking them using the all() function. 
 
 Testing - All milestones reached.
 
