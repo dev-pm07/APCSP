@@ -10,7 +10,7 @@ TARGET = (.1804, .5451, .3412)  # (18.04% red, 54.51% green and 34.12% blue) bot
 
 wn = Screen()
 wn.tracer(False)
-
+wn.exitonclick()
 turtle = Turtle()
 
 wn.setup(width = 1920, height = 1080)
@@ -214,6 +214,6 @@ while True:
             airBubble(bubble) 
             bubble.setheading(90)
             wn.update()  
-            bubble.forward(5)  
+            bubble.forward(5)
         
         bubble.clear()
