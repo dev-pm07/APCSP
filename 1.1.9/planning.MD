@@ -4,7 +4,7 @@ Brainstorming:
         - Spiral from center
         - Fan design across screen (loops)
         - Each space between blade is different color
-        - If statements for checking if the turtle is touching wall.
+        - If statements for checking if the turtle is touching the wall.
 
     *** Idea 2:
         - Sea Stars waving in the sea.
