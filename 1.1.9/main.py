@@ -10,7 +10,6 @@ TARGET = (.1804, .5451, .3412)  # (18.04% red, 54.51% green and 34.12% blue) bot
 
 wn = Screen()
 wn.tracer(False)
-wn.exitonclick()
 turtle = Turtle()
 
 wn.setup(width = 1920, height = 1080)
@@ -67,11 +66,14 @@ for i in range(5):
 
 organism.end_fill()
 
+# # Ask user how many barnacles they want on each side of the starfish
+
+numOfBarnacles = int(input("How many barnacles do you want on each side of the starfish?    "))
+
 # Create top right barnacles in certain area and record each coordinate and compare to make sure they are not touching at least one barnacle
 
 topTakenCoords = []
 sizeOfBarnacles = 20
-numOfBarnacles = 25
 distBtwBarnacles = sizeOfBarnacles*2
 numOfTakenCoords = 0
 takenXValues = []
@@ -125,7 +127,6 @@ for i in range(numOfBarnacles):
 
 bottomTakenCoords = []
 sizeOfBarnacles = 20
-numOfBarnacles = 25
 distBtwBarnacles = sizeOfBarnacles*2
 numOfTakenCoords = 0
 takenXValues = []
