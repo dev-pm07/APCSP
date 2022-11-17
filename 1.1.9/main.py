@@ -48,15 +48,17 @@ organism = Turtle()
 
 organism.speed('fastest')
 
+starfishColor = input("What color do you want the starfish to be?")
+
 # Create starfish organism
 
-organism.pencolor('crimson')
+organism.pencolor(starfishColor)
 organism.penup()
 organism.goto(200, -50)
 organism.pendown()
 
 head = 0
-organism.fillcolor('crimson')
+organism.fillcolor(starfishColor)
 organism.begin_fill()
 
 for i in range(5):
