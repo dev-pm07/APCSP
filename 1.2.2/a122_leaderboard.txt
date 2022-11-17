@@ -1,5 +1,5 @@
-Praneel,33
-Adarsha,27
-Pat,23
-Jack,15
-Jill,3
+Praneel,35
+feez,33
+Adarsha,32
+Pat,27
+Jack,19
