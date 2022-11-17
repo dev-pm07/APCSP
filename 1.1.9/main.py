@@ -12,7 +12,7 @@ wn = Screen()
 wn.tracer(False)
 turtle = Turtle()
 
-wn.setup(width = 1920, height = 1080)
+# wn.setup(width = 1920, height = 1080)
 
 
 WIDTH, HEIGHT = wn.window_width(), wn.window_height()
@@ -63,8 +63,10 @@ for i in range(5):
     head = head + 144
     organism.setheading(head)
     organism.forward(400)
-
+    
 organism.end_fill()
+
+
 
 # # Ask user how many barnacles they want on each side of the starfish
 
@@ -84,8 +86,8 @@ for i in range(numOfBarnacles):
     differenceXValues = []
     differenceYValues = []
 
-    xcoordinate = rand.randint(200, 500)
-    ycoordinate = rand.randint(200, 500)
+    xcoordinate = rand.randint(200, 400)
+    ycoordinate = rand.randint(200, 400)
 
     coordinate = [xcoordinate, ycoordinate]
     
@@ -99,13 +101,13 @@ for i in range(numOfBarnacles):
     
 
     if all(value < distBtwBarnacles for value in differenceXValues):
-        coordinate[0] = rand.randint(200, 500)
+        coordinate[0] = rand.randint(200, 400)
         check()
     else:
         pass
     
     if all(value < distBtwBarnacles for value in differenceYValues):
-        coordinate[1] = rand.randint(200, 500)
+        coordinate[1] = rand.randint(200, 400)
         check()
     else:
         pass
@@ -137,7 +139,7 @@ for i in range(numOfBarnacles):
     differenceXValues = []
     differenceYValues = []
 
-    xcoordinate = rand.randint(-500, -200)
+    xcoordinate = rand.randint(-400, -200)
     ycoordinate = rand.randint(-400, -200)
 
     coordinate = [xcoordinate, ycoordinate]
@@ -152,7 +154,7 @@ for i in range(numOfBarnacles):
     
 
     if all(value < distBtwBarnacles for value in differenceXValues):
-        coordinate[0] = rand.randint(-500, -200)
+        coordinate[0] = rand.randint(-400, -200)
         check()
     else:
         pass
