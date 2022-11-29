@@ -117,7 +117,6 @@ def draw_leaderboard(high_scorer, leader_names, leader_scores, turtle_object, pl
   # move turtle to a new line
   turtle_object.penup()
   turtle_object.goto(-160,int(turtle_object.ycor())-50)
-  turtle_object.pendown()
 
   # TODO 14: display message about player making/not making leaderboard
   if (high_scorer == True):
@@ -128,7 +127,7 @@ def draw_leaderboard(high_scorer, leader_names, leader_scores, turtle_object, pl
   # move turtle to a new line
   turtle_object.penup()
   turtle_object.goto(-160,int(turtle_object.ycor())-50)
-  turtle_object.pendown()
+
   
   # TODO 15: Display a gold/silver/bronze message if player earned a gold/silver/or bronze medal; display nothing if no medal
   if (player_score >= gold_score):
