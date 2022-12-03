@@ -10,18 +10,18 @@ wn.title("1.2.4 - Turtle Escape")
 maze_painter = trtl.Turtle()
 wallLen = 50
 maze_painter.pensize(10)
-distBtwWalls = 100
+distBtwWalls = 50
 
-maze_painter.setposition(0, 100)
+maze_painter.setposition(0, 0)
 maze_painter.left(90)
 
 for walls in range(2):
     maze_painter.pu()
     maze_painter.forward(wallLen)
     maze_painter.left(90)
-    wallLen += distBtwWalls/2
+    wallLen += 50
 
-for walls in range(18):
+for walls in range(16):
     maze_painter.pd()
     maze_painter.forward(10)
     maze_painter.pu()
@@ -35,7 +35,7 @@ for walls in range(18):
     maze_painter.left(90)
     maze_painter.forward(wallLen - (10 + 35))
     maze_painter.left(90)
-    wallLen += 35
+    wallLen += 50
 
 maze_painter.hideturtle()
 
