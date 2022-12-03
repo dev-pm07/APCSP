@@ -35,7 +35,7 @@ for numOfWalls in range(24):
 
     elif numOfWalls >= 20 and numOfWalls != 23:
 
-        barrier = rand.randint(0, ( wallLen - 25 ))
+        barrier = rand.randint(0, ( wallLen - 50 ))
         remainingLen = wallLen - barrier
         maze_painter.forward(barrier)
         draw_barrier()
@@ -60,7 +60,7 @@ for numOfWalls in range(24):
             maze_painter.left(90)
             wallLen += path_width
         else: 
-            barrier = rand.randint(0, ( remainingLen - 25 ))
+            barrier = rand.randint(0, ( remainingLen - 50 ))
             remainingLen = remainingLen - barrier
             maze_painter.forward(barrier)
             draw_barrier()
