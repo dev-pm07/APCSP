@@ -1,34 +1,8 @@
-import turtle as trtl
-
-maze_painter = trtl.Turtle()
-
-wn = trtl.Screen()
-wn.setup(width=1.0, height=1.0)
-maze_painter.speed("fastest")
-maze_painter.left(90)
-path_width = 15
-doorlength = 10
-wallLen = 50
-barrierlength = path_width * 2
-for i in range(25):
-    if i < 4:
-      maze_painter.forward(wallLen)
-      maze_painter.left(90)
-      wallLen += path_width
-    else:
-      maze_painter.forward(10)
-      maze_painter.penup()
-      maze_painter.forward(path_width * 2)
-      maze_painter.pendown()
-      maze_painter.forward(40)
-      maze_painter.left(90)
-      maze_painter.forward(path_width*2)
-      maze_painter.back(path_width*2)
-      maze_painter.right(90)
-      maze_painter.forward(wallLen - ((path_width * 2) + 10))
-      maze_painter.left(90)
-      wallLen += path_width
-  
-maze_painter.hideturtle()
-
-wn.mainloop()
+import keyboard  # using module keyboard
+while True:  # making a loop
+    try:  # used try so that if user pressed other than the given key error will not be shown
+        if keyboard.is_pressed('q'):  # if key 'q' is pressed 
+            print('You Pressed A Key!')
+            break  # finishing the loop
+    except:
+        break  # if user pressed a key other than the given key the loop will breakq

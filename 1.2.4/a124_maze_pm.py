@@ -1,3 +1,5 @@
+import datetime
+import time
 import turtle as trtl
 import random as rand
 import keyboard
@@ -82,6 +84,7 @@ maze_runner = trtl.Turtle(shape = "turtle")
 maze_runner.shapesize(1.5)
 colors = ["silver", "royal blue", "medium turquoise", "dark slate gray", "lime green", "olive", 
           "goldenrod", "sandy brown", "maroon", "coral", "hot pink", "medium purple", "ghost white"]
+maze_runner.color(colors[rand.randint(0, 12)])
 maze_runner.pu()
 maze_runner.setposition(-50, 0)
 maze_runner.pd()
@@ -92,22 +95,28 @@ counter.hideturtle()
 counter.penup()
 counter.goto(-160, 160) # x,y set to fit on smaller screen
 counter.pendown()
-timer = 30
+timer = 60
 
 
-# countdown function
 def countdown():
-    global timer
-    counter.clear()
-    if timer <= 0:
-        counter.write("Time's Up!", font=("Nunito", 20, "normal"))
-    elif keyboard.is_pressed('return'):
-        return
+  global timer
+  counter.clear()
+  if timer <= 0:
+    counter.write("You Failed to Escape!", font=("Nunito", 20, "normal"))
+  else:
+    if keyboard.is_pressed('f'):
+        wn.clearscreen()
+        wn.bgcolor("white smoke")
+        counter.pu()
+        counter.setpos(-400, 0)
+        counter.pd()
+        counter.write("You escaped in " + str(60 - timer) + " seconds!", font=("Nunito", 50, "normal"))
     else:
         counter.write("Timer: " + str(timer), font=("Nunito", 20, "normal"))
         timer -= 1
-        counter.getscreen().ontimer(countdown, 1000)
+        counter.getscreen().ontimer(countdown, 1000)     
 
+        
 def up():
     maze_runner.seth(90)
     maze_runner.forward(10)
@@ -122,23 +131,14 @@ def left():
     maze_runner.forward(25)
 def changeColor():
     maze_runner.color(colors[rand.randint(0, 12)])
-def done():    
-    wn.clearscreen()
-    wn.bgcolor("white smoke")
-    counter.pu()
-    counter.setposition(-250, 0)
-    counter.pd()
-    counter.write("Your time is: " + str(timer), font=("Nunito", 50, "normal"))
 
+countdown()
 wn.onkeypress(up, "Up")
 wn.onkeypress(right, "Right")
 wn.onkeypress(down, "Down")
 wn.onkeypress(left, "Left")
 wn.onkeypress(changeColor, "space")
-wn.onkeypress(done, "Return")
 
 wn.listen()
-
-countdown()
 
 wn.mainloop()
