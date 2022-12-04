@@ -75,6 +75,16 @@ for numOfWalls in range(24):
             maze_painter.forward(remainingLen)
             maze_painter.left(90)
             wallLen += path_width
+    
+# Draw Finish Line
+
+maze_painter.pu()
+maze_painter.goto(400, -375)
+maze_painter.pd()
+maze_painter.seth(270)
+maze_painter.pencolor('lime green')
+maze_painter.pensize(35)
+maze_painter.forward(75)
 
 maze_painter.hideturtle()
 
@@ -93,28 +103,25 @@ maze_runner.speed("fastest")
 counter =  trtl.Turtle()
 counter.hideturtle()
 counter.penup()
-counter.goto(-160, 160) # x,y set to fit on smaller screen
+counter.goto(550, 350) # x,y set to fit on smaller screen
 counter.pendown()
 timer = 60
-
 
 def countdown():
   global timer
   counter.clear()
   if timer <= 0:
-    counter.write("You Failed to Escape!", font=("Nunito", 20, "normal"))
+    counter.write("You Failed to Escape!", font=("Nunito", 35, "normal"))
+  elif maze_runner.xcor() > 400:
+    wn.clearscreen()
+    counter.pu()
+    counter.setposition(-425, 0)
+    counter.pd()
+    counter.write("You Escaped in: " + str( 60 - timer ) + " seconds!", font=("Nunito", 50, "normal"))
   else:
-    if keyboard.is_pressed('f'):
-        wn.clearscreen()
-        wn.bgcolor("white smoke")
-        counter.pu()
-        counter.setpos(-400, 0)
-        counter.pd()
-        counter.write("You escaped in " + str(60 - timer) + " seconds!", font=("Nunito", 50, "normal"))
-    else:
-        counter.write("Timer: " + str(timer), font=("Nunito", 20, "normal"))
-        timer -= 1
-        counter.getscreen().ontimer(countdown, 1000)     
+    counter.write("Timer: " + str(timer), font=("Nunito", 35, "normal"))
+    timer -= 1
+    counter.getscreen().ontimer(countdown, 1000)     
 
         
 def up():
@@ -132,7 +139,6 @@ def left():
 def changeColor():
     maze_runner.color(colors[rand.randint(0, 12)])
 
-countdown()
 wn.onkeypress(up, "Up")
 wn.onkeypress(right, "Right")
 wn.onkeypress(down, "Down")
@@ -140,5 +146,7 @@ wn.onkeypress(left, "Left")
 wn.onkeypress(changeColor, "space")
 
 wn.listen()
+
+countdown()
 
 wn.mainloop()
