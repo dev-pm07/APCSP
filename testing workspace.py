@@ -1,86 +1,34 @@
-#   a123_apple_1.py
 import turtle as trtl
-import random as rand
-#-----setup-----
-apple_image = "sprites/apple.gif"  # Store the file name of your shape
 
-alpha = [
-    "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l",
-    "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"
-]
+maze_painter = trtl.Turtle()
+
 wn = trtl.Screen()
 wn.setup(width=1.0, height=1.0)
-wn.addshape(apple_image)  # Make the screen aware of the new file
-wn.bgpic("sprites/background.gif")
-appleList = []
-letterList = []
-letterTrtlList = []
-letterTrtlIndex = 0
-letterTrtl = trtl.Turtle()
-for apples in range(5):
-  apple = trtl.Turtle()
-  apple.hideturtle()
-  appleList.append(apple)
-for letters in range(5):
-  letter = trtl.Turtle()
-  letter.hideturtle()
-  letterTrtlList.append(letter)
-
-
-#-----functions-----
-# given a turtle, set that turtle to be shaped by the image file
-def draw_apple(active_apple):
-  active_apple.shape(apple_image)
-  active_apple.showturtle()
-  active_apple.penup()
-  wn.update()
-  alphaIndex = rand.randint(0, 25)
-  active_apple.setx(rand.randint(-175,175)) #reset the apple position
-  active_apple.sety(rand.randint(-25,100)) #reset the apple position
-  global letterTrtl
-  global letter
-  global alpha
-  global letterTrtlIndex
-  letter = alpha.pop(alphaIndex)
-  letterList.append(letter)
-  letterTrtlList[letterTrtlIndex].color('white')
-  letterTrtlList[letterTrtlIndex].hideturtle()
-  letterTrtlList[letterTrtlIndex].penup()
-  letterTrtlList[letterTrtlIndex].setposition(active_apple.xcor() - 13,                                                              active_apple.ycor() - 30)
-  letterTrtlList[letterTrtlIndex].write(letter, font=("Arial", 35))
-  letterTrtlIndex += 1
-
-# pressedApple
-def drop(apple):
-  wn.tracer(n=1, delay=0)
-  apple.penup()
-  apple.penup()
-  apple.right(
-      90
-  )  # turtle always face the right, so to make it "fall" it must turn right by 90
-  letterTrtl.right(90)
-  while apple.ycor() > -150:
-      letterTrtl.forward(10)  # Apple falling of the tree"
-      letterTrtl.clear()
-      letterTrtl.forward(10)
-      letterTrtl.write(letter, font=("Arial", 35))
-
-
-
-#-----function calls-----
-for appleIndex in range(5):
-  draw_apple(appleList[appleIndex])
+maze_painter.speed("fastest")
+maze_painter.left(90)
+path_width = 15
+doorlength = 10
+wallLen = 50
+barrierlength = path_width * 2
+for i in range(25):
+    if i < 4:
+      maze_painter.forward(wallLen)
+      maze_painter.left(90)
+      wallLen += path_width
+    else:
+      maze_painter.forward(10)
+      maze_painter.penup()
+      maze_painter.forward(path_width * 2)
+      maze_painter.pendown()
+      maze_painter.forward(40)
+      maze_painter.left(90)
+      maze_painter.forward(path_width*2)
+      maze_painter.back(path_width*2)
+      maze_painter.right(90)
+      maze_painter.forward(wallLen - ((path_width * 2) + 10))
+      maze_painter.left(90)
+      wallLen += path_width
   
-for i in range(5):
-  
-  wn.onkeypress(lambda apple = appleList[i]: 
-  drop(apple), letterList[i])
-  
-wn.listen()
-  # wn.onkeypress(drop(appleList[appleIndex]), letterList[appleIndex])
-  # wn.listen()
-
-
-wn.listen()
+maze_painter.hideturtle()
 
 wn.mainloop()
