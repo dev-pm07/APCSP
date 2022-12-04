@@ -16,7 +16,7 @@ maze_painter = trtl.Turtle()
 wallLen = 50
 path_width = 35
 maze_painter.pensize(10)
-
+isFirst = rand.randint(0, 1)
 maze_painter.pu()
 maze_painter.goto(0, 50)
 maze_painter.pd()
@@ -38,6 +38,9 @@ def draw_door(toLoc):
 
 for numOfWalls in range(24):
 
+    isFirst = rand.randint(0, 1)
+    
+        
     if numOfWalls < 5:
 
         maze_painter.pu()
@@ -61,21 +64,44 @@ for numOfWalls in range(24):
 
     elif numOfWalls >= 5 and numOfWalls < 20:
 
-        doorLoc = rand.randint(0, wallLen - ( path_width * 2 ))
-        remainingLen = wallLen - doorLoc
-        draw_door(doorLoc)
-        if remainingLen < 50:
-            maze_painter.forward(remainingLen)
-            maze_painter.left(90)
-            wallLen += path_width
-        else: 
-            barrierLoc = rand.randint(0, ( remainingLen - 50 ))  
-            remainingLen = remainingLen - barrierLoc
+        if isFirst == 0:
+
+            doorLoc = rand.randint(0, wallLen - ( path_width * 2 ))
+            remainingLen = wallLen - doorLoc
+            draw_door(doorLoc)
+            if remainingLen < 50:
+                maze_painter.forward(remainingLen)
+                maze_painter.left(90)
+                wallLen += path_width
+            else: 
+                barrierLoc = rand.randint(0, ( remainingLen - 50 ))  
+                remainingLen = remainingLen - barrierLoc
+                draw_barrier(barrierLoc)
+                maze_painter.forward(remainingLen)
+                maze_painter.left(90)
+                wallLen += path_width
+        
+        elif isFirst == 1:
+
+            barrierLoc = rand.randint(0, wallLen - 50)  
+            remainingLen = wallLen - barrierLoc
             draw_barrier(barrierLoc)
-            maze_painter.forward(remainingLen)
-            maze_painter.left(90)
-            wallLen += path_width
-    
+
+            if remainingLen < path_width * 2:
+
+                maze_painter.forward(remainingLen)
+                maze_painter.left(90)
+                wallLen += path_width
+                
+            else: 
+                
+                doorLoc = rand.randint(0, ( remainingLen - ( path_width * 2 ) ))
+                remainingLen = remainingLen - doorLoc
+                draw_door(doorLoc)
+                maze_painter.forward(remainingLen)
+                maze_painter.left(90)
+                wallLen += path_width
+
 # Draw Finish Line
 
 maze_painter.pu()
