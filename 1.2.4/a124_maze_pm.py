@@ -49,7 +49,7 @@ for numOfWalls in range(24):
         wallLen += path_width
         maze_painter.pd()
 
-    elif numOfWalls >= 20 and numOfWalls != 23:
+    elif numOfWalls >= 20 and numOfWalls < 22:
 
         barrierLoc = rand.randint(0, ( wallLen - 50 ))
         remainingLen = wallLen - barrierLoc
@@ -58,6 +58,12 @@ for numOfWalls in range(24):
         maze_painter.left(90)
         wallLen += path_width
     
+    elif numOfWalls == 22:
+
+        maze_painter.forward(wallLen)
+        maze_painter.left(90)
+        wallLen += path_width
+
     elif numOfWalls == 23:
 
         maze_painter.forward(wallLen)
@@ -66,7 +72,7 @@ for numOfWalls in range(24):
 
         if isFirst == 0:
 
-            doorLoc = rand.randint(0, wallLen - ( path_width * 2 ))
+            doorLoc = rand.randint(path_width * 2, wallLen - ( path_width * 2 ))
             remainingLen = wallLen - doorLoc
             draw_door(doorLoc)
             if remainingLen < 50:
@@ -83,7 +89,7 @@ for numOfWalls in range(24):
         
         elif isFirst == 1:
 
-            barrierLoc = rand.randint(0, wallLen - 50)  
+            barrierLoc = rand.randint(path_width * 2, wallLen - 50)  
             remainingLen = wallLen - barrierLoc
             draw_barrier(barrierLoc)
 
@@ -137,7 +143,11 @@ def countdown():
   global timer
   counter.clear()
   if timer <= 0:
-    counter.write("You Failed to Escape!", font=("Nunito", 35, "normal"))
+    wn.clearscreen()
+    counter.pu()
+    counter.setposition(-350, 0)
+    counter.pd()
+    counter.write("You Failed to Escape!", font=("Nunito", 50, "normal"))
   elif maze_runner.xcor() > 400:
     wn.clearscreen()
     counter.pu()
