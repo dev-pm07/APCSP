@@ -1,6 +1,14 @@
-public static void main(String[] args) {
-    
-    int x = 5;
-    System.out.println("x");
-    
+public class testing {
+    public static void main(String[] args) {
+        
+        for (int i = 0; i < 10; i++) {
+        if (i == 4) {
+            
+            continue;
+
+        }
+            System.out.println(i);
+        }
+
+    }
 }

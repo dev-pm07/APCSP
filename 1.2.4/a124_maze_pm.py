@@ -1,8 +1,5 @@
-import datetime
-import time
 import turtle as trtl
 import random as rand
-import keyboard
 
 # Init
 wn = trtl.Screen()
@@ -60,7 +57,7 @@ for numOfWalls in range(24):
     
     elif numOfWalls == 22:
 
-        maze_painter.forward(wallLen)
+        maze_painter.forward(wallLen + (path_width * 2))
         maze_painter.left(90)
         wallLen += path_width
 
