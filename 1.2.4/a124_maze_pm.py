@@ -151,7 +151,7 @@ counter.hideturtle()
 counter.penup()
 counter.goto(550, 350)
 counter.pendown()
-timer = 60
+timer = 30
 
 def countdown():
   global timer
