@@ -169,7 +169,7 @@ def countdown():
     counter.pu()
     counter.setposition(-425, 0)
     counter.pd()
-    counter.write("You Escaped in: " + str( 60 - timer ) + " seconds!", font=("Nunito", 50, "normal"))
+    counter.write("You Escaped in: " + str( 30 - timer ) + " seconds!", font=("Nunito", 50, "normal"))
   else:
     counter.write("Timer: " + str(timer), font=("Nunito", 35, "normal"))
     timer -= 1
