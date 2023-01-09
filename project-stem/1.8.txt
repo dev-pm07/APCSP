@@ -1,0 +1,29 @@
+Invitation Details: 
+When: 10:00 AM to 12:00 PM
+Where: 11090 Villita St., Frisco, TX 75035
+Invitee List: 
+Name: Jason Phan
+Email: phanjas000@k12.prosper-isd.net
+Name: Caleb Davis
+Email: daviscal000@k12.prosper-isd.net
+Name: Adarsha Regmi
+Email: regmiada000@k12.prosper-isd.net
+Other considerations:
+Contact me at mahalpra000@k12.prosper-isd.net
+How will you know who is showing up? RSVP? 
+A boolean value will determine if true, they are coming; or false, they are not coming.
+Is there a theme to your invitation/design?
+The theme is classical music
+
+What type of data are time, date, and place? How are they different from the other data types on the invite and guest list?
+The type of time is string because to include the AM and PM, we need a string unless you split the time into 2 variables (int for time and boolean for AM and PM). 
+We can split up the date variable into 3 separate variables: month, date, year. They are different because one consists of many alphanumeric characters and one just consists or numeric characters.
+Place is a combination of an int (Street Number), string (Street name), string (City name), string (State name), int (Zip Code)
+
+What components are included within "Address"? What are the types and differences to them?
+The address is a combination of an int (Street Number), string (Street name), string (City name), string (State name), int (Zip Code). Strings can  consist of letters and integers 
+consists of numbers.
+
+How might your invitation be a framework for other events? How can events be tailored? What could be a variable, in the traditional definition of the word?
+It is a framework since it consists of all variables needed to host an event. It can be tailored by changing the variables such as the time and address variables. 
+Where and when it is, RSVP, theme, invitee names and emails, and contact information are all examples of variables since it can changed to suit the user's needs.
