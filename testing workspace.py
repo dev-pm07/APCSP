@@ -1,63 +1,11 @@
-1.
+import turtle
 
-REPEAT 2 TIMES
-
-    REPEAT 4 TIMES
-
-    {
-
-        MOVE_FORWARD()
-
-    }
-
-    ROTATE_LEFT()
-
-REPEAT 2 TIMES
-
-    MOVE_FORWARD()
-
-ROTATE_LEFT()
-
-MOVE_FORWARD()
-
-2.
-
-REPEAT 2 TIMES 
-
-    ROTATE_RIGHT()
-
-MOVE_FORWARD(RANDOM (1, 2))
-
-3.
-
-    REPEAT 2 TIMES
-
-        REPEAT 2 TIMES
-
-            MOVE_FORWARD()
-
-        ROTATE_RIGHT()
-
-    REPEAT 4 TIMES
-
-        MOVE_FORWARD()
-
-    ROTATE_RIGHT()
-
-   REPEAT 3 TIMES
-
-        MOVE_FORWARD()
-
-    ROTATE_RIGHT()
-
-REPEAT 9 TIMES
-
-    REPEAT 4 TIMES
+for i in range(4):
+    turtle.right(90)
+    turtle.forward(100)
 
 
-
-
-
-
+wn = turtle.Screen()
+wn.mainloop()
 
 
